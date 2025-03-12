@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { HomeComponent } from './layout.component';
+import { ConsultaNfseComponent } from './consulta-nfse.component';
 
-describe('LayoutComponent', () => {
-  let component: HomeComponent;
-  let fixture: ComponentFixture<HomeComponent>;
+describe('ConsultaNfseComponent', () => {
+  let component: ConsultaNfseComponent;
+  let fixture: ComponentFixture<ConsultaNfseComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HomeComponent]
+      imports: [ConsultaNfseComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(HomeComponent);
+    fixture = TestBed.createComponent(ConsultaNfseComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

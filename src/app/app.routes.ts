@@ -1,9 +1,6 @@
 import { Routes } from '@angular/router';
-import { HomeComponent as HomeComponent } from './components/layout/layout.component';
+import { AppComponent } from './app.component';
+import { ConsultaCreditoComponent } from './consulta-credito/consulta-credito.component';
+import { ConsultaNfseComponent } from './consulta-nfse/consulta-nfse.component';
 
-export const routes: Routes = [
-  {
-    path: "",
-    component: HomeComponent
-  }
-];
+export const routes: Routes = [];

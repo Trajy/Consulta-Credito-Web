@@ -1,1 +1,32 @@
-<router-outlet />
+<mat-toolbar>
+    <button
+        *ngIf="sidenav?.mode === 'over'"
+        mat-icon-button
+        (click)="sidenav.toggle()"
+    >
+        <mat-icon *ngIf="!sidenav.opened">
+            menu
+        </mat-icon>
+        <mat-icon *ngIf="sidenav.opened">
+            close
+        </mat-icon>
+    </button>
+    Resposive Side Bar
+</mat-toolbar>
+<mat-sidenav-container>
+    <mat-sidenav>
+        <button mat-button (click)="sidenav.close()">
+            <mat-icon>sell</mat-icon>
+            <span>Consulta de Credito</span>
+        </button>
+        <button mat-button (click)="sidenav.close()">
+            <mat-icon>description</mat-icon>
+            <span>Consulta Nfse</span>
+        </button>
+    </mat-sidenav>
+    <mat-sidenav-content >
+        <div class="mat-elevation-z8">
+            Main Content
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>
