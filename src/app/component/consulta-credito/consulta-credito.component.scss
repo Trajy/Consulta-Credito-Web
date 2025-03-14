@@ -1,0 +1,50 @@
+mat-card-title {
+  font-size: 1.5rem;
+  text-align: center;
+  color: black;
+}
+
+mat-form-field {
+  width: 230px;
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+p {
+  color: black;
+  font-size: 1rem;
+  margin: 10px 0;
+}
+
+.card {
+  width: 100%;
+  max-width: 600px;
+  margin: 20px;
+}
+
+.scroll-container {
+  display: flex;
+  position: relative;
+  top: 20px;
+  width: 100%;
+  max-height: 80%; // Ajuste conforme necessário
+  overflow: auto;
+  cursor: grab;
+  scrollbar-width: none; // Remove barra de rolagem no Firefox
+  -ms-overflow-style: none; // Remove barra no IE/Edge
+
+  &::-webkit-scrollbar {
+    display: none; // Remove barra no Chrome/Safari
+  }
+
+  &.active {
+    cursor: grabbing;
+  }
+}
+
+.empty_state {
+  display: inherit;
+  position: relative;
+  top: 25%;
+  left: 40%;
+}

@@ -1,0 +1,50 @@
+<section class="header">
+    <mat-form-field class="mat-elevation-z4">
+        <mat-label>Digite o numero de Credito</mat-label>
+        <input matInput type="text" [formControl]="searchForm">
+        @if (searchForm.value) {
+        <button matSuffix mat-icon-button aria-label="Clear" (click)="searchForm.setValue('')">
+            <mat-icon>close</mat-icon>
+        </button>
+        }
+    </mat-form-field>
+</section>
+<section class="content-list scroll-container" *ngIf="dataFromApi else empty_state">
+    <div class="container">
+        <mat-card class="card">
+          <mat-card-header>
+            <mat-card-title>Detalhes do Crédito</mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p><strong>Número do Crédito:</strong> {{ dataFromApi.numeroCredito }}</p>
+            <mat-divider></mat-divider>
+            <p><strong>Número da NFSe:</strong> {{ dataFromApi.numeroNfse }}</p>
+            <mat-divider></mat-divider>
+            <p><strong>Data de Constituição:</strong> {{ dataFromApi.dataConstituicao | date:'dd/MM/yyyy' }}</p>
+            <mat-divider></mat-divider>
+            <p><strong>Valor ISSQN:</strong> {{ dataFromApi.valorIssqn | currency:'BRL' }}</p>
+            <mat-divider></mat-divider>
+            <p><strong>Tipo de Crédito:</strong> {{ dataFromApi.tipoCredito }}</p>
+            <mat-divider></mat-divider>
+            <p><strong>Simples Nacional:</strong> {{ dataFromApi.simplesNacional }}</p>
+            <mat-divider></mat-divider>
+            <p><strong>Alíquota (%):</strong> {{ dataFromApi.aliquota }}%</p>
+            <mat-divider></mat-divider>
+            <p><strong>Valor Faturado:</strong> {{ dataFromApi.valorFaturado | currency:'BRL' }}</p>
+            <mat-divider></mat-divider>
+            <p><strong>Valor Dedução:</strong> {{ dataFromApi.valorDeducao | currency:'BRL' }}</p>
+            <mat-divider></mat-divider>
+            <p><strong>Base de Cálculo:</strong> {{ dataFromApi.baseCalculo | currency:'BRL' }}</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+</section>
+
+<ng-template #empty_state>
+    <div class="empty_state" *ngIf="!trySubmit">
+        Buscar pelo Numero de Credito.
+    </div>
+    <div class="empty_state" *ngIf="trySubmit">
+        Nenhum Resultado Encontrado.
+    </div>
+</ng-template>
