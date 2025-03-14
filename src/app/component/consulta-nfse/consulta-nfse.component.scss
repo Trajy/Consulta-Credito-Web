@@ -1,0 +1,35 @@
+mat-form-field {
+    width: 230px;
+    margin-top: 25px;
+    margin-left: 25px;
+}
+
+.scroll-container {
+    position: relative;
+    top: 20px;
+    width: 100%;
+    max-height: 400px; // Ajuste conforme necessário
+    overflow: auto;
+    cursor: grab;
+    scrollbar-width: none; // Remove barra de rolagem no Firefox
+    -ms-overflow-style: none; // Remove barra no IE/Edge
+
+    &::-webkit-scrollbar {
+        display: none; // Remove barra no Chrome/Safari
+    }
+
+    &.active {
+        cursor: grabbing;
+    }
+}
+
+table {
+    background-color: var(--md-sys-color-primary);
+}
+
+.empty_state {
+    display: inherit;
+    position: relative;
+    top: 25%;
+    left: 40%;
+}
