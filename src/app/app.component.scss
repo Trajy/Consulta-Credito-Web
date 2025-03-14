@@ -8,6 +8,7 @@ mat-toolbar {
 }
 
 mat-sidenav {
+    height: 125px;
     margin: 16px;
     width: 200px;
     border-right: none;
@@ -31,15 +32,15 @@ mat-sidenav-container {
     height: calc(100% - 65px);
 }
 
-mat-sidenav-content > div {
-        height: calc(100% - 98px);
-        margin: 16px;
-        margin-left: 32px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: lightgray;
-        font-size: 2em;
-        border-radius: 10px;
+mat-sidenav-content>div {
+    height: 97%;
+    margin-top: 16px;
+    margin-left: 32px;
+    color: lightgray;
+    font-size: 2em;
+    border-radius: 10px;
 }
 
+.padding {
+    padding: 70px;
+}

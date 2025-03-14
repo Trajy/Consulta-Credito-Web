@@ -11,22 +11,22 @@
             close
         </mat-icon>
     </button>
-    Resposive Side Bar
+    Credito Application
 </mat-toolbar>
 <mat-sidenav-container>
-    <mat-sidenav>
-        <button mat-button (click)="sidenav.close()">
+    <mat-sidenav mode="side">
+        <button mat-button (click)="sidenavClose()" routerLink="consulta-credito">
             <mat-icon>sell</mat-icon>
             <span>Consulta de Credito</span>
         </button>
-        <button mat-button (click)="sidenav.close()">
+        <button mat-button (click)="sidenavClose()" routerLink="consulta-nfse">
             <mat-icon>description</mat-icon>
             <span>Consulta Nfse</span>
         </button>
     </mat-sidenav>
-    <mat-sidenav-content >
-        <div class="mat-elevation-z8">
-            Main Content
+    <mat-sidenav-content>
+        <div class="mat-elevation-z8 paddind">
+            <router-outlet/>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
