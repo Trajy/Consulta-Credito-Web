@@ -1,6 +1,14 @@
 import { Routes } from '@angular/router';
-import { AppComponent } from './app.component';
-import { ConsultaCreditoComponent } from './consulta-credito/consulta-credito.component';
-import { ConsultaNfseComponent } from './consulta-nfse/consulta-nfse.component';
+import { ConsultaCreditoComponent } from './component/consulta-credito/consulta-credito.component';
+import { ConsultaNfseComponent } from './component/consulta-nfse/consulta-nfse.component';
 
-export const routes: Routes = [];
+export const routes: Routes = [
+  {
+    path: 'consulta-credito',
+    component: ConsultaCreditoComponent
+  },
+  {
+    path: 'consulta-nfse',
+    component: ConsultaNfseComponent
+  }
+];
