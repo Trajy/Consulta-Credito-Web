@@ -1,59 +1,31 @@
-# ConsultaCadastroWeb
+# Consulta Cadastro - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.1.
+Este repositório contêm o frontend do sistema de [Consulta de Credito](https://github.com/Trajy/Desafio-Consulta-Credito). Deselvolvido utilizando Angular Framework.
 
-## Development server
+## Sumário
+  - [Como Executar o Projeto](#como-executar-o-projeto)
+  - [Funcionalidades](#funcionalidades)
+  - [Resposividade](#resposividade)
+  - [Programação Reativa](#programação-reativa)
 
-To start a local development server, run:
+## Como Executar o Projeto
+O ambiente de desenvolvimento foi constituido utilizando containers Docker e Docker Compose, para detalhes sobre como executar o projeto vide a documentação no repositório principal [Desafio Consulta Crédito](https://github.com/Trajy/Desafio-Consulta-Credito).
 
-```bash
-ng serve
-```
+>[!NOTE]
+> Após o build do ambiente utilizando Docker Compose a aplicação frontend estará disponivel em http://localhost:4200
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Funcionalidades
+Duas funcionalidades basicas para demonstração dos conceitos abordados foram desenvolvidas.
 
-## Code scaffolding
+- Consulta dos dados de crédito a partir do numero de Crédito
+- Consulta dos dados de crédito relativos ao numero da Nfse
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Resposividade
+O layout base da aplicação frontend foi desenvolvido de forma responsiva para se adaptar aos diferentes tamanhos de tela. utilizando essa abordagem torna-se simples o desenvolvimento de novos compoenents, pois, o layout principal sera o container que emcapsula a vizualização dos demais compoenents.
 
-```bash
-ng generate component component-name
-```
+![image](./docs/img/responsive-screen.gif)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Programação Reativa
+O padrão de projeto Observable foi utilizado (Formulários reativos do Angular e a biblioteca rxjs) para executar as buscas na Api de Consulta de Crétido (backend) quando o usuario inserir valores no campo de busca.
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+![image](./docs/img/reactive%20request.gif)
