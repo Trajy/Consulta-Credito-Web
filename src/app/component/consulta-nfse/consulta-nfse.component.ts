@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { debounceTime, distinctUntilChanged, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, finalize, tap } from 'rxjs';
 import { Credito } from '../../model/credito.model';
 import { CreditoService } from '../../service/credito-service/credito.service';
 
@@ -18,7 +18,7 @@ import { CreditoService } from '../../service/credito-service/credito.service';
 export class ConsultaNfseComponent implements AfterViewInit {
 
     public searchForm: FormControl<string> = new FormControl('') as FormControl<string>;
-    public dataFromApi!: Credito[];
+    public dataFromApi!: Credito[] | undefined;
     public trySubmit: boolean = false;
     @ViewChild('scrollContainer') public scrollContainer!: ElementRef;
     public displayedColumns = [
@@ -75,9 +75,9 @@ export class ConsultaNfseComponent implements AfterViewInit {
 
     private searchCreditos(numeroNfse: string): void {
         this.creditoService.getCreditosByNfse(numeroNfse)
+                .pipe(tap(() => this.dataFromApi = undefined), finalize(() => this.trySubmit = true))
                 .subscribe((response) => {
                     this.dataFromApi = response;
-                    this.trySubmit = true;
                 });
     }
 

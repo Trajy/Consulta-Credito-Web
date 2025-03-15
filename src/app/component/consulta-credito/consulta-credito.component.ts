@@ -7,7 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { debounceTime, distinctUntilChanged, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, finalize, tap } from 'rxjs';
 import { Credito } from '../../model/credito.model';
 import { CreditoService } from '../../service/credito-service/credito.service';
 
@@ -31,22 +31,22 @@ import { CreditoService } from '../../service/credito-service/credito.service';
 export class ConsultaCreditoComponent implements AfterViewInit {
 
     public searchForm: FormControl<string> = new FormControl('') as FormControl<string>;
-    public dataFromApi!: Credito;
+    public dataFromApi!: Credito | undefined;
     public trySubmit: boolean = false;
 
     constructor(private readonly creditoService: CreditoService) { }
 
     public ngAfterViewInit(): void {
         this.searchForm.valueChanges
-                .pipe(debounceTime(500), distinctUntilChanged(), tap(value => console.log(value)))
+                .pipe(debounceTime(500), distinctUntilChanged())
                 .subscribe(this.searchCredito.bind(this));
     }
 
     public searchCredito(numeroCredito: string): void {
         this.creditoService.getByNumeroCredito(numeroCredito)
+                .pipe(tap(() => this.dataFromApi = undefined), finalize(() => this.trySubmit = true))
                 .subscribe(response => {
                     this.dataFromApi = response;
-                    this.trySubmit = true;
                 });
     }
 
